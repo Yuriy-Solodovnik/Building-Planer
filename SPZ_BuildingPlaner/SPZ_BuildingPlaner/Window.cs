@@ -10,7 +10,7 @@ namespace SPZ_BuildingPlaner
             SizeMode = PictureBoxSizeMode.StretchImage;
             Size = new Size(block - 1, block - 1);
             Location = new Point(x, y);
-            Image = Properties.Resources.wall;
+            Image = Properties.Resources.window;
         }
     }
 }

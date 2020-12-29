@@ -8,7 +8,7 @@ namespace SPZ_BuildingPlaner
         public Sofa(int x, int y, int block)
         {
             SizeMode = PictureBoxSizeMode.StretchImage;
-            Size = new Size(block*8-1, block*4-1);
+            Size = new Size(block*7-1, block*3-1);
             Location = new Point(x, y);
             Image = Properties.Resources.sofa;
         }

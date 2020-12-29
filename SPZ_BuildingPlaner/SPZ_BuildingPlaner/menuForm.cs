@@ -7,16 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-//using System.NotificationWindow;
-
+using MetroFramework;
+using MetroFramework.Forms;
 namespace SPZ_BuildingPlaner
 {
-    public partial class menuForm : Form
+    public partial class menuForm : MetroForm
     {
         public menuForm()
         {
             InitializeComponent();
             comboBoxMapSize.SelectedIndex = 0;
+            MaximizeBox = false;
             //var n = new PopupNotifaer();
 
         }

@@ -43,10 +43,10 @@
             this.addFloorBtn.Text = "Добавить этаж";
             this.addFloorBtn.UseVisualStyleBackColor = true;
             this.addFloorBtn.Click += new System.EventHandler(this.addFloorBtn_Click);
+            this.addFloorBtn.MouseMove += new System.Windows.Forms.MouseEventHandler(this.floorForm_MouseMove);
             // 
             // comboBoxItems
             // 
-            this.comboBoxItems.FormattingEnabled = true;
             this.comboBoxItems.Items.AddRange(new object[] {
             "Стена",
             "Окно",
@@ -58,7 +58,9 @@
             this.comboBoxItems.Name = "comboBoxItems";
             this.comboBoxItems.Size = new System.Drawing.Size(188, 21);
             this.comboBoxItems.TabIndex = 1;
+            this.comboBoxItems.TabStop = false;
             this.comboBoxItems.SelectedIndexChanged += new System.EventHandler(this.comboBoxItems_SelectedIndexChanged);
+            this.comboBoxItems.MouseMove += new System.Windows.Forms.MouseEventHandler(this.floorForm_MouseMove);
             // 
             // labelItems
             // 
@@ -68,6 +70,7 @@
             this.labelItems.Size = new System.Drawing.Size(187, 13);
             this.labelItems.TabIndex = 2;
             this.labelItems.Text = "Выберите элемент для добавления";
+            this.labelItems.MouseMove += new System.Windows.Forms.MouseEventHandler(this.floorForm_MouseMove);
             // 
             // floorForm
             // 
@@ -79,7 +82,8 @@
             this.Controls.Add(this.addFloorBtn);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "floorForm";
-            this.Text = "floorForm";
+            this.Style = MetroFramework.MetroColorStyle.Silver;
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.floorForm_MouseMove);
             this.ResumeLayout(false);
             this.PerformLayout();
