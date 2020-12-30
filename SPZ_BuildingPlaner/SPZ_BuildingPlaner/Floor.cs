@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace SPZ_BuildingPlaner
 {
-    class Floor
+    public class Floor
     {
         int _size, _block;
         public Block[,] blocks; 
@@ -17,15 +17,14 @@ namespace SPZ_BuildingPlaner
             _size = size;
             _block = block;
             blocks = new Block[size, size];
-            for(int i = 1; i <= _size; i += 1)
+            for(int i = 0; i < _size; i += 1)
             {
-                for (int j = 1; j <= _size; j += 1)
+                for (int j = 0; j < _size; j += 1)
                 {
-                    blocks[i-1, j-1] = new Block()
-                    { 
+                    blocks[i, j] = new Block()
+                    {
                         Avaliable = true,
-                        X = i * _block + 31,
-                        Y = j * _block + 31
+                        Location = new Point(i * _block + 31, j * _block + 31)
                     };
                 }
             }

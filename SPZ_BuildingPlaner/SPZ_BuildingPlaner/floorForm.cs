@@ -18,6 +18,7 @@ namespace SPZ_BuildingPlaner
         PictureBox currentItem = null;
         PictureBox selectedPicture;
         List<Wall> walls;
+        Floor f;    
         int _size, _block, X, Y;
         public floorForm(int size, int block)
         {
@@ -29,12 +30,11 @@ namespace SPZ_BuildingPlaner
             selectedPicture = new PictureBox()
             {
                 SizeMode = PictureBoxSizeMode.StretchImage,
-                Size = new Size(100, 100),
-                Location = new Point(comboBoxItems.Location.X, comboBoxItems.Location.Y + 100),
+                Location = new Point(comboBoxItems.Location.X, comboBoxItems.Location.Y + 30),
                 Cursor = Cursors.Hand
             };
             Sofa s = new Sofa(61, 61, _block);
-            Floor f = new Floor(size, block);
+            f = new Floor(size, block);
             createField();
             Controls.Add(selectedPicture);
             comboBoxItems.SelectedIndex = 0;
@@ -47,14 +47,6 @@ namespace SPZ_BuildingPlaner
         }
         void createField()
         {
-            /*for (int i = 0; i <= _size * _block + 0; i += _block)
-            {
-                Controls.Add(createLine(0, i, _size * _block, 1));
-            }
-            for (int j = 0; j <= _size * _block + 0; j += _block)
-            {
-                Controls.Add(createLine(j, 0, 1, _size * _block));
-            }*/
             for (int i = 30; i <= _size * _block + 30; i += _block)
             {
                 Controls.Add(createLine(30, i, _size * _block, 1));
@@ -64,7 +56,44 @@ namespace SPZ_BuildingPlaner
                 Controls.Add(createLine(j, 30, 1, _size * _block));
             }
         }
-
+        private void takePosition(int width, int height, Point position)
+        {
+            ValueTuple<int, int> index = getIndex(position);
+            if (f.blocks[index.Item1, index.Item2].Location == position)
+            {
+                for (int k = 0; k < (width + 1) / _block; k += 1)
+                {
+                    for (int l = 0; l < (height + 1) / _block; l += 1)
+                    {
+                        f.blocks[index.Item1 + k, index.Item2 + l].Avaliable = false;
+                    }
+                }
+                
+            }
+        }
+        private ValueTuple<int, int> getIndex(Point position)
+        {
+            ValueTuple<int, int> index = (
+                         from i in Enumerable.Range(0, _size)
+                         from j in Enumerable.Range(0, _size)
+                         where f.blocks[i, j].Location == position
+                         select (i, j)
+                         ).FirstOrDefault();
+            return index;
+        }
+        private bool checkPosition(int width, int height, Point position)
+        {
+            ValueTuple<int, int> index = getIndex(position);
+            for (int k = 0; k < (width + 1) / _block; k += 1)
+            {
+                for (int l = 0; l < (height + 1) / _block; l += 1)
+                {
+                    if (f.blocks[index.Item1 + k, index.Item2 + l].Avaliable == false)
+                        return false;
+                }
+            }
+            return true;
+        }
         private void addFloorBtn_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.OK;
@@ -73,31 +102,52 @@ namespace SPZ_BuildingPlaner
 
         private void comboBoxItems_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+            selectedPicture.Size = new Size(100, 100);
             switch (comboBoxItems.SelectedIndex)
             {
                 case 0:
                         selectedPicture.Image = Properties.Resources.wall;
-                        selectedPicture.Update();
                         break;
                 case 1:
                         selectedPicture.Image = Properties.Resources.window;
-                        selectedPicture.Update();
                         break;
                 case 2:
+                        selectedPicture.Size = new Size(100, 50);
                         selectedPicture.Image = Properties.Resources.door;
-                        selectedPicture.Update();
                         break;
                 case 3:
                         selectedPicture.Image = Properties.Resources.sofa;
-                        selectedPicture.Update();
+                        selectedPicture.Size = new Size(99, 47);
                         break;
                 case 4:
                         selectedPicture.Image = Properties.Resources.mychair;
-                        selectedPicture.Update();
                         break;
                 case 5:
                         selectedPicture.Image = Properties.Resources.table;
-                        selectedPicture.Update();
+                        break;
+                case 6:
+                        selectedPicture.Size = new Size(66, 99);
+                        selectedPicture.Image = Properties.Resources.cupboard;
+                        break;
+                case 7:
+                        selectedPicture.Image = Properties.Resources.fridge;
+                        break;
+                case 8:
+                        selectedPicture.Image = Properties.Resources.plate;
+                        break;
+                case 9:
+                        selectedPicture.Image = Properties.Resources.sink;
+                        break;
+                case 10:
+                        selectedPicture.Image = Properties.Resources.kitchenTable;
+                        break;
+                case 11:
+                        selectedPicture.Size = new Size(66, 99);
+                        selectedPicture.Image = Properties.Resources.bath;
+                        break;
+                case 12:
+                        selectedPicture.Image = Properties.Resources.toilet;
                         break;
             }
         }
@@ -165,16 +215,19 @@ namespace SPZ_BuildingPlaner
         }
         private void FloorForm_MouseClick(object sender, MouseEventArgs e)
         {
-            if (currentItem != null && e.Button.ToString() == "Right" && (currentItem.Location.X > 30 && currentItem.Location.X <= _block * _size +31)
-                && (currentItem.Location.Y > 30  && currentItem.Location.Y <= _block * _size + 31))
+            if (currentItem != null && e.Button.ToString() == "Right" && (currentItem.Location.X > 30 
+                && currentItem.Location.X <= _block * _size - currentItem.Size.Width + 31)
+                && (currentItem.Location.Y > 30  && currentItem.Location.Y <= _block * _size - currentItem.Size.Height + 31))
             {
-                currentItem.Location = new Point((X) - ((X-31) % _block),
-                    (Y) - ((Y-31) % _block));
-                currentItem = null;
-                Cursor.Show();
+                currentItem.Location = new Point(X - ((X-31) % _block), Y - ((Y-31) % _block));
+                if (checkPosition(currentItem.Size.Width, currentItem.Size.Height, currentItem.Location))
+                {
+                    takePosition(currentItem.Size.Width, currentItem.Size.Height, currentItem.Location);
+                    currentItem = null;
+                    Cursor.Show();
+                }
             }
         }
-
         private void SelectedPicture_Click(object sender, EventArgs e)
         {
             if(currentItem == null)
@@ -182,47 +235,96 @@ namespace SPZ_BuildingPlaner
                 switch (comboBoxItems.SelectedIndex)
                 {
                     case 0:
-                        Wall w = new Wall(selectedPicture.Location.X, selectedPicture.Location.Y, _block);
-                        currentItem = w;
-                        w.MouseMove += floorForm_MouseMove;
-                        w.MouseClick += FloorForm_MouseClick;
-                        Controls.Add(w);
-                        walls.Add(w);
+                        Wall wall = new Wall(selectedPicture.Location.X, selectedPicture.Location.Y, _block);
+                        currentItem = wall;
+                        wall.MouseMove += floorForm_MouseMove;
+                        wall.MouseClick += FloorForm_MouseClick;
+                        Controls.Add(wall);
+                        walls.Add(wall);
                         break;
                     case 1:
-                        Window win = new Window(selectedPicture.Location.X, selectedPicture.Location.Y, _block);
-                        currentItem = win;
-                        win.MouseMove += floorForm_MouseMove;
-                        win.MouseClick += FloorForm_MouseClick;
-                        Controls.Add(win);
+                        Window window = new Window(selectedPicture.Location.X, selectedPicture.Location.Y, _block);
+                        currentItem = window;
+                        window.MouseMove += floorForm_MouseMove;
+                        window.MouseClick += FloorForm_MouseClick;
+                        Controls.Add(window);
                         break;
                     case 2:
-                        Door d = new Door(selectedPicture.Location.X, selectedPicture.Location.Y, _block);
-                        currentItem = d;
-                        d.MouseMove += floorForm_MouseMove;
-                        d.MouseClick += FloorForm_MouseClick;
-                        Controls.Add(d);
+                        Door door = new Door(selectedPicture.Location.X, selectedPicture.Location.Y, _block);
+                        currentItem = door;
+                        door.MouseMove += floorForm_MouseMove;
+                        door.MouseClick += FloorForm_MouseClick;
+                        Controls.Add(door);
                         break;
                     case 3:
-                        Sofa s = new Sofa(selectedPicture.Location.X, selectedPicture.Location.Y, _block);
-                        currentItem = s;
-                        s.MouseMove += floorForm_MouseMove;
-                        s.MouseClick += FloorForm_MouseClick;
-                        Controls.Add(s);
+                        Sofa sofa = new Sofa(selectedPicture.Location.X, selectedPicture.Location.Y, _block);
+                        currentItem = sofa;
+                        sofa.MouseMove += floorForm_MouseMove;
+                        sofa.MouseClick += FloorForm_MouseClick;
+                        Controls.Add(sofa);
                         break;
                     case 4:
-                        MyChair c = new MyChair(selectedPicture.Location.X, selectedPicture.Location.Y, _block);
-                        currentItem = c;
-                        c.MouseMove += floorForm_MouseMove;
-                        c.MouseClick += FloorForm_MouseClick;
-                        Controls.Add(c);
+                        MyChair chair = new MyChair(selectedPicture.Location.X, selectedPicture.Location.Y, _block);
+                        currentItem = chair;
+                        chair.MouseMove += floorForm_MouseMove;
+                        chair.MouseClick += FloorForm_MouseClick;
+                        Controls.Add(chair);
                         break;
                     case 5:
-                        Table t = new Table(selectedPicture.Location.X, selectedPicture.Location.Y, _block);
-                        currentItem = t;
-                        t.MouseMove += floorForm_MouseMove;
-                        t.MouseClick += FloorForm_MouseClick;
-                        Controls.Add(t);
+                        Table table = new Table(selectedPicture.Location.X, selectedPicture.Location.Y, _block);
+                        currentItem = table;
+                        table.MouseMove += floorForm_MouseMove;
+                        table.MouseClick += FloorForm_MouseClick;
+                        Controls.Add(table);
+                        break;
+                    case 6:
+                        Cupboard cupboard = new Cupboard(selectedPicture.Location.X, selectedPicture.Location.Y, _block);
+                        currentItem = cupboard;
+                        cupboard.MouseMove += floorForm_MouseMove;
+                        cupboard.MouseClick += FloorForm_MouseClick;
+                        Controls.Add(cupboard);
+                        break;
+                    case 7:
+                        Fridge fridge = new Fridge(selectedPicture.Location.X, selectedPicture.Location.Y, _block);
+                        currentItem = fridge;
+                        fridge.MouseMove += floorForm_MouseMove;
+                        fridge.MouseClick += FloorForm_MouseClick;
+                        Controls.Add(fridge);
+                        break;
+                    case 8:
+                        Plate plate = new Plate(selectedPicture.Location.X, selectedPicture.Location.Y, _block);
+                        currentItem = plate;
+                        plate.MouseMove += floorForm_MouseMove;
+                        plate.MouseClick += FloorForm_MouseClick;
+                        Controls.Add(plate);
+                        break;
+                    case 9:
+                        Sink sink = new Sink(selectedPicture.Location.X, selectedPicture.Location.Y, _block);
+                        currentItem = sink;
+                        sink.MouseMove += floorForm_MouseMove;
+                        sink.MouseClick += FloorForm_MouseClick;
+                        Controls.Add(sink);
+                        break;
+                    case 10:
+                        KitchenTable kTable = new KitchenTable(selectedPicture.Location.X, selectedPicture.Location.Y, _block);
+                        currentItem = kTable;
+                        kTable.MouseMove += floorForm_MouseMove;
+                        kTable.MouseClick += FloorForm_MouseClick;
+                        Controls.Add(kTable);
+                        break;
+                    case 11:
+                        Bath bath = new Bath(selectedPicture.Location.X, selectedPicture.Location.Y, _block);
+                        currentItem = bath;
+                        bath.MouseMove += floorForm_MouseMove;
+                        bath.MouseClick += FloorForm_MouseClick;
+                        Controls.Add(bath);
+                        break;
+                    case 12:
+                        Toilet toilet = new Toilet(selectedPicture.Location.X, selectedPicture.Location.Y, _block);
+                        currentItem = toilet;
+                        toilet.MouseMove += floorForm_MouseMove;
+                        toilet.MouseClick += FloorForm_MouseClick;
+                        Controls.Add(toilet);
                         break;
                 }
                 Cursor.Hide();

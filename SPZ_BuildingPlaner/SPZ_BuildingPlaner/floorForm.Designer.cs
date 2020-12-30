@@ -53,7 +53,14 @@
             "Дверь",
             "Диван",
             "Стул",
-            "Стол"});
+            "Стол",
+            "Шкаф",
+            "Холодильник",
+            "Плита",
+            "Раковина",
+            "Кухонный столик",
+            "Ванна",
+            "Туалет"});
             this.comboBoxItems.Location = new System.Drawing.Point(1081, 54);
             this.comboBoxItems.Name = "comboBoxItems";
             this.comboBoxItems.Size = new System.Drawing.Size(188, 21);

@@ -38,7 +38,7 @@
             // 
             // addFloorBtn
             // 
-            this.addFloorBtn.Location = new System.Drawing.Point(593, 352);
+            this.addFloorBtn.Location = new System.Drawing.Point(626, 375);
             this.addFloorBtn.Name = "addFloorBtn";
             this.addFloorBtn.Size = new System.Drawing.Size(184, 75);
             this.addFloorBtn.TabIndex = 0;
@@ -49,7 +49,7 @@
             // labelSize
             // 
             this.labelSize.AutoSize = true;
-            this.labelSize.Location = new System.Drawing.Point(644, 60);
+            this.labelSize.Location = new System.Drawing.Point(686, 47);
             this.labelSize.Name = "labelSize";
             this.labelSize.Size = new System.Drawing.Size(133, 13);
             this.labelSize.TabIndex = 1;
@@ -63,7 +63,7 @@
             "50х50 13",
             "25х25 26",
             "20х20 32"});
-            this.comboBoxMapSize.Location = new System.Drawing.Point(647, 76);
+            this.comboBoxMapSize.Location = new System.Drawing.Point(689, 63);
             this.comboBoxMapSize.Name = "comboBoxMapSize";
             this.comboBoxMapSize.Size = new System.Drawing.Size(121, 21);
             this.comboBoxMapSize.TabIndex = 2;
@@ -75,7 +75,7 @@
             this.pictureBoxBuilding.Image = global::SPZ_BuildingPlaner.Properties.Resources.building;
             this.pictureBoxBuilding.Location = new System.Drawing.Point(0, 5);
             this.pictureBoxBuilding.Name = "pictureBoxBuilding";
-            this.pictureBoxBuilding.Size = new System.Drawing.Size(447, 447);
+            this.pictureBoxBuilding.Size = new System.Drawing.Size(447, 470);
             this.pictureBoxBuilding.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxBuilding.TabIndex = 3;
             this.pictureBoxBuilding.TabStop = false;
@@ -84,7 +84,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(833, 473);
             this.Controls.Add(this.pictureBoxBuilding);
             this.Controls.Add(this.comboBoxMapSize);
             this.Controls.Add(this.labelSize);
