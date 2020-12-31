@@ -18,7 +18,7 @@ namespace SPZ_BuildingPlaner
             InitializeComponent();
             comboBoxMapSize.SelectedIndex = 0;
             MaximizeBox = false;
-            //var n = new PopupNotifaer();
+           
 
         }
 

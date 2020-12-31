@@ -121,6 +121,9 @@
   <data name="bath" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\bath.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="bed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\bed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="building" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\building.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -129,6 +132,9 @@
   </data>
   <data name="door" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\door.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="flower" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\flower.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="fridge" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\fridge.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -139,8 +145,14 @@
   <data name="mychair" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\mychair.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="nightstand" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\nightstand.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="plate" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\plate.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="recycleBin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\recyclebin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="sink" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\sink.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

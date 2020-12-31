@@ -11,11 +11,13 @@ namespace SPZ_BuildingPlaner
     public class Floor
     {
         int _size, _block;
-        public Block[,] blocks; 
+        public Block[,] blocks;
+        public List<PictureBox> walls;
         public Floor(int size, int block)
         {
             _size = size;
             _block = block;
+            walls = new List<PictureBox>();
             blocks = new Block[size, size];
             for(int i = 0; i < _size; i += 1)
             {

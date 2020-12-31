@@ -73,6 +73,16 @@ namespace SPZ_BuildingPlaner.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bed {
+            get {
+                object obj = ResourceManager.GetObject("bed", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap building {
             get {
                 object obj = ResourceManager.GetObject("building", resourceCulture);
@@ -96,6 +106,16 @@ namespace SPZ_BuildingPlaner.Properties {
         internal static System.Drawing.Bitmap door {
             get {
                 object obj = ResourceManager.GetObject("door", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap flower {
+            get {
+                object obj = ResourceManager.GetObject("flower", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -133,9 +153,29 @@ namespace SPZ_BuildingPlaner.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap nightstand {
+            get {
+                object obj = ResourceManager.GetObject("nightstand", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap plate {
             get {
                 object obj = ResourceManager.GetObject("plate", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap recycleBin {
+            get {
+                object obj = ResourceManager.GetObject("recycleBin", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

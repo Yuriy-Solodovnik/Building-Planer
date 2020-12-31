@@ -57,6 +57,7 @@
             // 
             // comboBoxMapSize
             // 
+            this.comboBoxMapSize.BackColor = System.Drawing.SystemColors.Window;
             this.comboBoxMapSize.Cursor = System.Windows.Forms.Cursors.Hand;
             this.comboBoxMapSize.FormattingEnabled = true;
             this.comboBoxMapSize.Items.AddRange(new object[] {
@@ -89,6 +90,7 @@
             this.Controls.Add(this.comboBoxMapSize);
             this.Controls.Add(this.labelSize);
             this.Controls.Add(this.addFloorBtn);
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "menuForm";
             this.Style = MetroFramework.MetroColorStyle.Silver;

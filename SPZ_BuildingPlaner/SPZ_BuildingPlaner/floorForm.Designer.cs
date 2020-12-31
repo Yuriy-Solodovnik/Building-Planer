@@ -32,6 +32,8 @@
             this.addFloorBtn = new System.Windows.Forms.Button();
             this.comboBoxItems = new System.Windows.Forms.ComboBox();
             this.labelItems = new System.Windows.Forms.Label();
+            this.pictureBoxRecycleBin = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRecycleBin)).BeginInit();
             this.SuspendLayout();
             // 
             // addFloorBtn
@@ -55,6 +57,9 @@
             "Стул",
             "Стол",
             "Шкаф",
+            "Тумбочка",
+            "Кровать",
+            "Цветок",
             "Холодильник",
             "Плита",
             "Раковина",
@@ -79,11 +84,23 @@
             this.labelItems.Text = "Выберите элемент для добавления";
             this.labelItems.MouseMove += new System.Windows.Forms.MouseEventHandler(this.floorForm_MouseMove);
             // 
+            // pictureBoxRecycleBin
+            // 
+            this.pictureBoxRecycleBin.Image = global::SPZ_BuildingPlaner.Properties.Resources.recycleBin;
+            this.pictureBoxRecycleBin.Location = new System.Drawing.Point(1288, 93);
+            this.pictureBoxRecycleBin.Name = "pictureBoxRecycleBin";
+            this.pictureBoxRecycleBin.Size = new System.Drawing.Size(59, 63);
+            this.pictureBoxRecycleBin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxRecycleBin.TabIndex = 3;
+            this.pictureBoxRecycleBin.TabStop = false;
+            this.pictureBoxRecycleBin.MouseMove += new System.Windows.Forms.MouseEventHandler(this.floorForm_MouseMove);
+            // 
             // floorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1370, 749);
+            this.Controls.Add(this.pictureBoxRecycleBin);
             this.Controls.Add(this.labelItems);
             this.Controls.Add(this.comboBoxItems);
             this.Controls.Add(this.addFloorBtn);
@@ -92,6 +109,7 @@
             this.Style = MetroFramework.MetroColorStyle.Silver;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.floorForm_MouseMove);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRecycleBin)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -102,5 +120,6 @@
         private System.Windows.Forms.Button addFloorBtn;
         private System.Windows.Forms.ComboBox comboBoxItems;
         private System.Windows.Forms.Label labelItems;
+        private System.Windows.Forms.PictureBox pictureBoxRecycleBin;
     }
 }
