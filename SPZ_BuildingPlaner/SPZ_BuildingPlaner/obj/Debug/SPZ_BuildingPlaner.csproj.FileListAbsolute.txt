@@ -12,3 +12,4 @@ D:\VS_Programs\SPZ_BuildingPlaner\SPZ_BuildingPlaner\obj\Debug\SPZ_BuildingPlane
 D:\VS_Programs\SPZ_BuildingPlaner\SPZ_BuildingPlaner\bin\Debug\MetroFramework.dll
 D:\VS_Programs\SPZ_BuildingPlaner\SPZ_BuildingPlaner\bin\Debug\MetroFramework.Fonts.dll
 D:\VS_Programs\SPZ_BuildingPlaner\SPZ_BuildingPlaner\obj\Debug\SPZ_BuildingPlaner.csproj.CopyComplete
+D:\VS_Programs\SPZ_BuildingPlaner\SPZ_BuildingPlaner\obj\Debug\SPZ_BuildingPlaner.BuildingForm.resources

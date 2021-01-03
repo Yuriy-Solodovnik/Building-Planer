@@ -56,6 +56,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BuildingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BuildingForm.Designer.cs">
+      <DependentUpon>BuildingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Storage.cs" />
     <Compile Include="View\Items\Bath.cs">
       <SubType>Component</SubType>
@@ -121,6 +127,9 @@
     <Compile Include="View\Items\Window.cs">
       <SubType>Component</SubType>
     </Compile>
+    <EmbeddedResource Include="BuildingForm.resx">
+      <DependentUpon>BuildingForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="floorForm.resx">
       <DependentUpon>floorForm.cs</DependentUpon>
     </EmbeddedResource>

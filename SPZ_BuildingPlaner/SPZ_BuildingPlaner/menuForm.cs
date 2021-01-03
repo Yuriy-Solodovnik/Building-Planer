@@ -16,20 +16,17 @@ namespace SPZ_BuildingPlaner
         public menuForm()
         {
             InitializeComponent();
-            comboBoxMapSize.SelectedIndex = 0;
             MaximizeBox = false;
            
 
         }
 
-        private void addFloorBtn_Click(object sender, EventArgs e)
+        private void addBuildingBtn_Click(object sender, EventArgs e)
         {
-            var form = new floorForm(Int32.Parse(comboBoxMapSize.SelectedItem.ToString().Substring(0, 2))-2,
-                Int32.Parse(comboBoxMapSize.SelectedItem.ToString().Substring(comboBoxMapSize.SelectedItem.ToString().Length - 2)));
+            var form = new BuildingForm();
             form.ShowDialog();
-            if(DialogResult == DialogResult.OK)
+            if (DialogResult == DialogResult.OK)
             {
-                comboBoxMapSize.Enabled = true;
             }
         }
     }

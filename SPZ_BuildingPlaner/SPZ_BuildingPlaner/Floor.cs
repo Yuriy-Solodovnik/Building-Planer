@@ -13,7 +13,7 @@ namespace SPZ_BuildingPlaner
         int _size, _block;
         public Block[,] blocks;
         public List<PictureBox> walls;
-        public Floor(int size, int block)
+        public Floor(int size, int block, int margine)
         {
             _size = size;
             _block = block;
@@ -26,7 +26,7 @@ namespace SPZ_BuildingPlaner
                     blocks[i, j] = new Block()
                     {
                         Avaliable = true,
-                        Location = new Point(i * _block + 31, j * _block + 31)
+                        Location = new Point(i * _block + margine + 1, j * _block + margine + 1)
                     };
                 }
             }

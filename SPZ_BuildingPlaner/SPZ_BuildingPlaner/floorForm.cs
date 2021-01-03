@@ -17,23 +17,32 @@ namespace SPZ_BuildingPlaner
         PictureBox currentItem = null;
         PictureBox selectedPicture;
         Floor f;    
-        int _size, _block, X, Y;
-        public floorForm(int size, int block)
+        const int _margine = 60;
+        int _size, _block, floorNumber, X, Y;
+        bool _change = false;
+        public floorForm(int floorNumber, int size, int block, Floor floor)
         {
             InitializeComponent();
-            MaximizeBox = false;
+            this.floorNumber = floorNumber;
+            labelFloorNumber.Text = "Этаж № " + (this.floorNumber).ToString();
             _size = size;
             _block = block;
-            f = new Floor(size, block);
-            if (Storage.building.Count > 0)
-                read(Storage.building[Storage.building.Count-1]);
+            if (floor != null)
+            {
+                _change = true;
+                f = floor;
+                read(f);
+                addFloorBtn.Text = "Изменить";
+            }
+            else
+                f = new Floor(size, block, _margine);
             selectedPicture = new PictureBox()
             {
                 SizeMode = PictureBoxSizeMode.StretchImage,
                 Location = new Point(comboBoxItems.Location.X, comboBoxItems.Location.Y + 30),
                 Cursor = Cursors.Hand
             };
-            createField();
+            MaximizeBox = false;
             Controls.Add(selectedPicture);
             comboBoxItems.SelectedIndex = 0;
             comboBoxItems.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -42,9 +51,7 @@ namespace SPZ_BuildingPlaner
             MouseClick += FloorForm_MouseClick;
             KeyDown += new KeyEventHandler(key_Click);
             KeyPreview = true;
-        }
-        private void initialize()
-        { 
+            createField();
         }
         private void read(Floor f)
         {
@@ -54,20 +61,20 @@ namespace SPZ_BuildingPlaner
                 {
                     var item = i.Content;
                     takePosition(item);
-                    item.MouseMove+= floorForm_MouseMove;
+                    item.BringToFront();
                     Controls.Add(item);
                 }
             }
         }
         private void createField()
         {
-            for (int i = 30; i <= _size * _block + 30; i += _block)
+            for (int i = _margine; i <= _size * _block + _margine; i += _block)
             {
-                Controls.Add(createLine(30, i, _size * _block, 1));
+                Controls.Add(createLine(_margine, i, _size * _block, 1));
             }
-            for (int j = 30; j <= _size * _block + 30; j += _block)
+            for (int j = _margine; j <= _size * _block + _margine; j += _block)
             {
-                Controls.Add(createLine(j, 30, 1, _size * _block));
+                Controls.Add(createLine(j, _margine, 1, _size * _block));
             }
         }
         private void takePosition(PictureBox item)
@@ -83,6 +90,34 @@ namespace SPZ_BuildingPlaner
                     }
                 }
                 f.blocks[index.Item1, index.Item2].Content = item;
+                f.blocks[index.Item1, index.Item2].Content.MouseClick += Content_MouseClick;
+                f.blocks[index.Item1, index.Item2].Content.MouseMove += floorForm_MouseMove;
+                f.blocks[index.Item1, index.Item2].Content.MouseClick += FloorForm_MouseClick;
+            }
+        }
+        private void leavePosition(PictureBox item)
+        {
+            ValueTuple<int, int> index = getIndex(item.Location);
+            if (f.blocks[index.Item1, index.Item2].Location == item.Location)
+            {
+                for (int k = 0; k < (item.Size.Width + 1) / _block; k += 1)
+                {
+                    for (int l = 0; l < (item.Size.Height + 1) / _block; l += 1)
+                    {
+                        f.blocks[index.Item1 + k, index.Item2 + l].Avaliable = true;
+                    }
+                }
+                f.blocks[index.Item1, index.Item2].Content = null;
+            }
+        }
+        private void Content_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (currentItem == null && e.Button.ToString() == "Left")
+            {
+                currentItem = sender as PictureBox;
+                currentItem.BringToFront();
+                Cursor.Hide();
+                leavePosition(currentItem);
             }
         }
         private ValueTuple<int, int> getIndex(Point position)
@@ -106,8 +141,8 @@ namespace SPZ_BuildingPlaner
         private bool checkPosition(int width, int height, Point position)
         {
             ValueTuple<int, int> index = getIndex(position);
-            if ((position.X > 30 && position.X <= _block * _size - width + 31)
-                && (position.Y > 30 && position.Y <= _block * _size - height + 31))
+            if ((position.X > _margine && position.X <= _block * _size - width + _margine+1)
+                && (position.Y > _margine && position.Y <= _block * _size - height + _margine+1))
                 {
                     for (int k = 0; k < (width + 1) / _block; k += 1)
                     {
@@ -122,6 +157,8 @@ namespace SPZ_BuildingPlaner
             else if((position.X > pictureBoxRecycleBin.Location.X && position.X <= pictureBoxRecycleBin.Location.X + pictureBoxRecycleBin.Size.Width)
                 && (position.Y > pictureBoxRecycleBin.Location.Y && position.Y <= pictureBoxRecycleBin.Location.Y + pictureBoxRecycleBin.Size.Height))
                  {
+                      if (currentItem.GetType().Name == "Wall")
+                        f.walls.Remove(currentItem);
                      Controls.Remove(currentItem);
                      return true;
                  }
@@ -130,9 +167,14 @@ namespace SPZ_BuildingPlaner
         }
         private void addFloorBtn_Click(object sender, EventArgs e)
         {
-            Storage.building.Add(f);
-            DialogResult = DialogResult.OK;
+            if (_change)
+            {
+                Storage.building[floorNumber-1] = f;
+            }
+            else
+                Storage.building.Add(f);
             Close();
+            DialogResult = DialogResult.OK;
         }
         private void comboBoxItems_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -197,7 +239,7 @@ namespace SPZ_BuildingPlaner
         }
         private void key_Click(object sender, KeyEventArgs e)
         {
-            if(f.walls.Count > 0)
+            if(f.walls.Count > 0 && currentItem == null)
             {
                 Point newLocation;
                 switch (e.KeyCode)
@@ -258,20 +300,20 @@ namespace SPZ_BuildingPlaner
                         else
                             getErrorProvider(f.walls[f.walls.Count - 1]);
                         break;
-                    case Keys.R:
-                        if (currentItem != null)
-                        {
-                            currentItem.Image.RotateFlip(RotateFlipType.Rotate90FlipNone);
-                            if (currentItem.Width != currentItem.Height)
-                            {
-                                int temp = currentItem.Width;
-                                currentItem.Width = currentItem.Height;
-                                currentItem.Height = temp;
-                            }
-                            currentItem.Refresh();
-                            this.Update();
-                        }
-                        break;
+                }
+            }
+            if (e.KeyCode == Keys.R)
+            {
+                if (currentItem != null)
+                {
+                    currentItem.Image.RotateFlip(RotateFlipType.Rotate90FlipNone);
+                    if (currentItem.Width != currentItem.Height)
+                    {
+                        int temp = currentItem.Width;
+                        currentItem.Width = currentItem.Height;
+                        currentItem.Height = temp;
+                    }
+                    currentItem.Refresh();
                 }
             }
         }
@@ -288,7 +330,7 @@ namespace SPZ_BuildingPlaner
         {
             if (currentItem != null && e.Button.ToString() == "Right")
             {
-                currentItem.Location = new Point(X - ((X-31) % _block), Y - ((Y-31) % _block));
+                currentItem.Location = new Point(X - ((X- _margine - 1) % _block), Y - ((Y - _margine - 1) % _block));
                 if (checkPosition(currentItem.Size.Width, currentItem.Size.Height, currentItem.Location))
                 {
                     takePosition(currentItem);
@@ -425,12 +467,14 @@ namespace SPZ_BuildingPlaner
         }
         PictureBox createLine(int i, int j, int s1, int s2)
         {
-            return new PictureBox
+            PictureBox line = new PictureBox
             {
                 BackColor = Color.Black,
                 Location = new Point(i, j),
                 Size = new Size(s1, s2)
             };
+            line.MouseMove += floorForm_MouseMove;
+            return line;
         }
     }
 }
