@@ -1,0 +1,17 @@
+D:\VS_Programs\SPZ_BuildingPlaner\SPZ_BuildingPlaner\bin\Debug\SPZ_BuildingPlaner.exe.config
+D:\VS_Programs\SPZ_BuildingPlaner\SPZ_BuildingPlaner\bin\Debug\SPZ_BuildingPlaner.exe
+D:\VS_Programs\SPZ_BuildingPlaner\SPZ_BuildingPlaner\bin\Debug\SPZ_BuildingPlaner.pdb
+D:\VS_Programs\SPZ_BuildingPlaner\SPZ_BuildingPlaner\bin\Debug\MetroFramework.dll
+D:\VS_Programs\SPZ_BuildingPlaner\SPZ_BuildingPlaner\bin\Debug\MetroFramework.Fonts.dll
+D:\VS_Programs\SPZ_BuildingPlaner\SPZ_BuildingPlaner\obj\Debug\SPZ_BuildingPlanner.csprojAssemblyReference.cache
+D:\VS_Programs\SPZ_BuildingPlaner\SPZ_BuildingPlaner\obj\Debug\SPZ_BuildingPlaner.BuildingForm.resources
+D:\VS_Programs\SPZ_BuildingPlaner\SPZ_BuildingPlaner\obj\Debug\SPZ_BuildingPlaner.BuildingNameForm.resources
+D:\VS_Programs\SPZ_BuildingPlaner\SPZ_BuildingPlaner\obj\Debug\SPZ_BuildingPlaner.floorForm.resources
+D:\VS_Programs\SPZ_BuildingPlaner\SPZ_BuildingPlaner\obj\Debug\SPZ_BuildingPlaner.menuForm.resources
+D:\VS_Programs\SPZ_BuildingPlaner\SPZ_BuildingPlaner\obj\Debug\SPZ_BuildingPlaner.OpenBuildingForm.resources
+D:\VS_Programs\SPZ_BuildingPlaner\SPZ_BuildingPlaner\obj\Debug\SPZ_BuildingPlaner.Properties.Resources.resources
+D:\VS_Programs\SPZ_BuildingPlaner\SPZ_BuildingPlaner\obj\Debug\SPZ_BuildingPlanner.csproj.GenerateResource.cache
+D:\VS_Programs\SPZ_BuildingPlaner\SPZ_BuildingPlaner\obj\Debug\SPZ_BuildingPlanner.csproj.CoreCompileInputs.cache
+D:\VS_Programs\SPZ_BuildingPlaner\SPZ_BuildingPlaner\obj\Debug\SPZ_BuildingPlanner.csproj.CopyComplete
+D:\VS_Programs\SPZ_BuildingPlaner\SPZ_BuildingPlaner\obj\Debug\SPZ_BuildingPlaner.exe
+D:\VS_Programs\SPZ_BuildingPlaner\SPZ_BuildingPlaner\obj\Debug\SPZ_BuildingPlaner.pdb

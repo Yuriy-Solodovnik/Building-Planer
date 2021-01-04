@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30517.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SPZ_BuildingPlaner", "SPZ_BuildingPlaner\SPZ_BuildingPlaner.csproj", "{B6B16C0E-058F-432E-91A0-F72F6F78DDEB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SPZ_BuildingPlanner", "SPZ_BuildingPlaner\SPZ_BuildingPlanner.csproj", "{B6B16C0E-058F-432E-91A0-F72F6F78DDEB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -113,6 +113,16 @@ namespace SPZ_BuildingPlaner.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap downArrow {
+            get {
+                object obj = ResourceManager.GetObject("downArrow", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap flower {
             get {
                 object obj = ResourceManager.GetObject("flower", resourceCulture);
@@ -126,6 +136,16 @@ namespace SPZ_BuildingPlaner.Properties {
         internal static System.Drawing.Bitmap fridge {
             get {
                 object obj = ResourceManager.GetObject("fridge", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap info {
+            get {
+                object obj = ResourceManager.GetObject("info", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -216,6 +236,16 @@ namespace SPZ_BuildingPlaner.Properties {
         internal static System.Drawing.Bitmap toilet {
             get {
                 object obj = ResourceManager.GetObject("toilet", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap upArrow {
+            get {
+                object obj = ResourceManager.GetObject("upArrow", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

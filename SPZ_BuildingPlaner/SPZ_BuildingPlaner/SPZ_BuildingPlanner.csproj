@@ -32,6 +32,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\logo.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="MetroFramework, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
       <HintPath>..\packages\MetroFramework.RunTime.1.2.0.3\lib\net40-Client\MetroFramework.dll</HintPath>
@@ -43,8 +49,10 @@
     <Reference Include="MetroFramework.Fonts, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
       <HintPath>..\packages\MetroFramework.Fonts.1.2.0.3\lib\net40\MetroFramework.Fonts.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.VisualBasic.Compatibility.Data" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -62,6 +70,19 @@
     <Compile Include="BuildingForm.Designer.cs">
       <DependentUpon>BuildingForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="BuildingNameForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BuildingNameForm.Designer.cs">
+      <DependentUpon>BuildingNameForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OpenBuildingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OpenBuildingForm.Designer.cs">
+      <DependentUpon>OpenBuildingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Saver.cs" />
     <Compile Include="Storage.cs" />
     <Compile Include="View\Items\Bath.cs">
       <SubType>Component</SubType>
@@ -130,11 +151,17 @@
     <EmbeddedResource Include="BuildingForm.resx">
       <DependentUpon>BuildingForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BuildingNameForm.resx">
+      <DependentUpon>BuildingNameForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="floorForm.resx">
       <DependentUpon>floorForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="menuForm.resx">
       <DependentUpon>menuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OpenBuildingForm.resx">
+      <DependentUpon>OpenBuildingForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -164,6 +191,9 @@
     <None Include="Resources\wall.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\downArrow.png" />
+    <Content Include="Resources\info.png" />
+    <Content Include="Resources\logo.ico" />
     <Content Include="MetroFramework.txt" />
     <Content Include="Resources\bath.png" />
     <Content Include="Resources\bed.png" />
@@ -181,6 +211,7 @@
     <Content Include="Resources\door.png" />
     <Content Include="Resources\sofa.png" />
     <Content Include="Resources\toilet.png" />
+    <None Include="Resources\upArrow.png" />
     <Content Include="Resources\window.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Drawing.Drawing2D;
 using MetroFramework.Forms;
 
 namespace SPZ_BuildingPlaner
@@ -27,19 +23,17 @@ namespace SPZ_BuildingPlaner
             labelFloorNumber.Text = "Этаж № " + (this.floorNumber).ToString();
             _size = size;
             _block = block;
+            f = new Floor(size, block, _margine);
             if (floor != null)
             {
                 _change = true;
-                f = floor;
-                read(f);
+                read(floor);
                 addFloorBtn.Text = "Изменить";
             }
-            else
-                f = new Floor(size, block, _margine);
             selectedPicture = new PictureBox()
             {
                 SizeMode = PictureBoxSizeMode.StretchImage,
-                Location = new Point(comboBoxItems.Location.X, comboBoxItems.Location.Y + 30),
+                Location = new Point(comboBoxItems.Location.X - 150, comboBoxItems.Location.Y),
                 Cursor = Cursors.Hand
             };
             MaximizeBox = false;
@@ -59,10 +53,9 @@ namespace SPZ_BuildingPlaner
             {
                 if(i.Content!=null)
                 {
-                    var item = i.Content;
-                    takePosition(item);
-                    item.BringToFront();
-                    Controls.Add(item);
+                    takePosition(i.Content);
+                    i.Content.BringToFront();
+                    Controls.Add(i.Content);
                 }
             }
         }
@@ -93,6 +86,7 @@ namespace SPZ_BuildingPlaner
                 f.blocks[index.Item1, index.Item2].Content.MouseClick += Content_MouseClick;
                 f.blocks[index.Item1, index.Item2].Content.MouseMove += floorForm_MouseMove;
                 f.blocks[index.Item1, index.Item2].Content.MouseClick += FloorForm_MouseClick;
+                f.blocks[index.Item1, index.Item2].Content.Cursor = Cursors.Hand;
             }
         }
         private void leavePosition(PictureBox item)
@@ -154,8 +148,8 @@ namespace SPZ_BuildingPlaner
                     }
                     return true;
                 }
-            else if((position.X > pictureBoxRecycleBin.Location.X && position.X <= pictureBoxRecycleBin.Location.X + pictureBoxRecycleBin.Size.Width)
-                && (position.Y > pictureBoxRecycleBin.Location.Y && position.Y <= pictureBoxRecycleBin.Location.Y + pictureBoxRecycleBin.Size.Height))
+            else if((position.X > pictureBoxRecycleBin.Location.X - 30 && position.X <= pictureBoxRecycleBin.Location.X + pictureBoxRecycleBin.Size.Width)
+                && (position.Y > pictureBoxRecycleBin.Location.Y - 30 && position.Y <= pictureBoxRecycleBin.Location.Y + pictureBoxRecycleBin.Size.Height))
                  {
                       if (currentItem.GetType().Name == "Wall")
                         f.walls.Remove(currentItem);
@@ -169,10 +163,14 @@ namespace SPZ_BuildingPlaner
         {
             if (_change)
             {
-                Storage.building[floorNumber-1] = f;
+                Storage.building[floorNumber - 1] = f;
+                Saver.update(floorNumber - 1, Saver.getScreanShoot(_margine, _size * _block));
             }
             else
+            {
                 Storage.building.Add(f);
+                Saver.insret(Saver.getScreanShoot(_margine, _size * _block));
+            }
             Close();
             DialogResult = DialogResult.OK;
         }
@@ -317,6 +315,25 @@ namespace SPZ_BuildingPlaner
                 }
             }
         }
+        private void pictureBoxInfo_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("   1. Выберите элемент для добавления.\n" +
+                "   2. Наведите мышью на макет, отображающий выбранный вами элемент.\n" +
+                "   3. Нажмите левую кнопку мыши и переместите объект на нужное поле.\n" +
+                "   4. Объекты можно разворачивать, нажав клавишу [R].\n" +
+                "   5. Для подтвержения позиции элемента нажмите правую кнопку мыши.\n" +
+                "   6. При добавлениии объекта \"Стена\" вы можете добылять новые объекты типа \"Стена\" " +
+                "нажатием клавиш [W], [S], [A], [D], в зависимости от нужного направления.\n" +
+                "   7. Возможно повторное выделение объектов путем нажатия левой кнопки мыши.\n" +
+                "   8. Чтобы удалить объект, выделите его, переместите в область корзины, а затем нажмите правую кнопку мыши.\n");
+        }
+        private void buttonExit_Click(object sender, EventArgs e)
+        {
+            Cursor.Show();
+            DialogResult = DialogResult.OK;
+            Close();
+        }
+
         private void floorForm_MouseMove(object sender, MouseEventArgs e)
         {
             if (currentItem != null)
