@@ -64,103 +64,103 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BuildingForm.cs">
+    <Compile Include="View\BuildingForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BuildingForm.Designer.cs">
+    <Compile Include="View\BuildingForm.Designer.cs">
       <DependentUpon>BuildingForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="BuildingNameForm.cs">
+    <Compile Include="View\BuildingNameForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BuildingNameForm.Designer.cs">
+    <Compile Include="View\BuildingNameForm.Designer.cs">
       <DependentUpon>BuildingNameForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="OpenBuildingForm.cs">
+    <Compile Include="View\OpenBuildingForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="OpenBuildingForm.Designer.cs">
+    <Compile Include="View\OpenBuildingForm.Designer.cs">
       <DependentUpon>OpenBuildingForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Saver.cs" />
-    <Compile Include="Storage.cs" />
-    <Compile Include="View\Items\Bath.cs">
+    <Compile Include="Model\Saver.cs" />
+    <Compile Include="Model\Storage.cs" />
+    <Compile Include="Model\Items\Bath.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="View\Items\Bed.cs">
+    <Compile Include="Model\Items\Bed.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Block.cs" />
-    <Compile Include="View\Items\Cupboard.cs">
+    <Compile Include="Model\Block.cs" />
+    <Compile Include="Model\Items\Cupboard.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="View\Items\Door.cs">
+    <Compile Include="Model\Items\Door.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Floor.cs" />
-    <Compile Include="floorForm.cs">
+    <Compile Include="Model\Floor.cs" />
+    <Compile Include="View\floorForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="floorForm.Designer.cs">
+    <Compile Include="View\floorForm.Designer.cs">
       <DependentUpon>floorForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Items\Flower.cs">
+    <Compile Include="Model\Items\Flower.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="View\Items\Fridge.cs">
+    <Compile Include="Model\Items\Fridge.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="View\Items\KitchenTable.cs">
+    <Compile Include="Model\Items\KitchenTable.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="menuForm.cs">
+    <Compile Include="View\menuForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="menuForm.Designer.cs">
+    <Compile Include="View\menuForm.Designer.cs">
       <DependentUpon>menuForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Items\MyChair.cs">
+    <Compile Include="Model\Items\MyChair.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="View\Items\Nightstand.cs">
+    <Compile Include="Model\Items\Nightstand.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="View\Items\Plate.cs">
+    <Compile Include="Model\Items\Plate.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Program.cs" />
+    <Compile Include="Model\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="View\Items\Sink.cs">
+    <Compile Include="Model\Items\Sink.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="View\Items\Sofa.cs">
+    <Compile Include="Model\Items\Sofa.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="View\Items\Table.cs">
+    <Compile Include="Model\Items\Table.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="View\Items\Toilet.cs">
+    <Compile Include="Model\Items\Toilet.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="View\Items\Wall.cs">
+    <Compile Include="Model\Items\Wall.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="View\Items\Window.cs">
+    <Compile Include="Model\Items\Window.cs">
       <SubType>Component</SubType>
     </Compile>
-    <EmbeddedResource Include="BuildingForm.resx">
+    <EmbeddedResource Include="View\BuildingForm.resx">
       <DependentUpon>BuildingForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BuildingNameForm.resx">
+    <EmbeddedResource Include="View\BuildingNameForm.resx">
       <DependentUpon>BuildingNameForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="floorForm.resx">
+    <EmbeddedResource Include="View\floorForm.resx">
       <DependentUpon>floorForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="menuForm.resx">
+    <EmbeddedResource Include="View\menuForm.resx">
       <DependentUpon>menuForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OpenBuildingForm.resx">
+    <EmbeddedResource Include="View\OpenBuildingForm.resx">
       <DependentUpon>OpenBuildingForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

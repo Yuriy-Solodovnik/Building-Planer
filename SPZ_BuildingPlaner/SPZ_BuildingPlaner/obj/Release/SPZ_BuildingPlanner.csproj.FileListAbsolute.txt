@@ -3,7 +3,6 @@ D:\VS_Programs\SPZ_BuildingPlaner\SPZ_BuildingPlaner\bin\Release\SPZ_BuildingPla
 D:\VS_Programs\SPZ_BuildingPlaner\SPZ_BuildingPlaner\bin\Release\SPZ_BuildingPlaner.pdb
 D:\VS_Programs\SPZ_BuildingPlaner\SPZ_BuildingPlaner\bin\Release\MetroFramework.dll
 D:\VS_Programs\SPZ_BuildingPlaner\SPZ_BuildingPlaner\bin\Release\MetroFramework.Fonts.dll
-D:\VS_Programs\SPZ_BuildingPlaner\SPZ_BuildingPlaner\obj\Release\SPZ_BuildingPlanner.csprojAssemblyReference.cache
 D:\VS_Programs\SPZ_BuildingPlaner\SPZ_BuildingPlaner\obj\Release\SPZ_BuildingPlaner.BuildingForm.resources
 D:\VS_Programs\SPZ_BuildingPlaner\SPZ_BuildingPlaner\obj\Release\SPZ_BuildingPlaner.BuildingNameForm.resources
 D:\VS_Programs\SPZ_BuildingPlaner\SPZ_BuildingPlaner\obj\Release\SPZ_BuildingPlaner.floorForm.resources
@@ -15,3 +14,4 @@ D:\VS_Programs\SPZ_BuildingPlaner\SPZ_BuildingPlaner\obj\Release\SPZ_BuildingPla
 D:\VS_Programs\SPZ_BuildingPlaner\SPZ_BuildingPlaner\obj\Release\SPZ_BuildingPlanner.csproj.CopyComplete
 D:\VS_Programs\SPZ_BuildingPlaner\SPZ_BuildingPlaner\obj\Release\SPZ_BuildingPlaner.exe
 D:\VS_Programs\SPZ_BuildingPlaner\SPZ_BuildingPlaner\obj\Release\SPZ_BuildingPlaner.pdb
+D:\VS_Programs\SPZ_BuildingPlaner\SPZ_BuildingPlaner\obj\Release\SPZ_BuildingPlanner.csprojAssemblyReference.cache
